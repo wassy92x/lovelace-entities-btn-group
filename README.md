@@ -5,12 +5,7 @@ A custom card for Home Assistant to group multiple buttons ([Custom-ButtonCard](
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE.md)
 
-This repository consists of two custom lovelace cards for Home Assistant
-
-## Button Group
-This component groups multiple cards together.
-It is perfectly useable for the [custom button card](https://github.com/custom-cards/button-card).
-Buttons are aligned floated.
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/entities-btn-group.png?raw=true)
 
 ### Options
 
