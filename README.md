@@ -29,7 +29,7 @@ For the entities you can use every valid config-key of the custom button card.
 
 # Example
 ```
-type: custom:entities-button-group
+type: custom:entities-btn-group
 title: Wohnzimmer
 entities:
   - light.fernsehbeleuchtung
@@ -49,8 +49,6 @@ button_card_templates:
     aspect_ratio: 1/1
     styles:
       card:
-        - color: rgba(255, 255, 255, 0.3)
-        - background-color: rgba(115, 115, 115, 0.2)
         - border-radius: 10px
         - box-shadow: none
         - transition: none
@@ -154,7 +152,6 @@ button_card_templates:
           - top: calc(50% - 0.6em)
           - width: 100%
           - font-size: 1.2em
-          - color: white
         targetTemp:
           - position: absolute
           - right: 5px
