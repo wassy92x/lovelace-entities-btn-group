@@ -29,7 +29,7 @@ For the entities you can use every valid config-key of the custom button card.
 
 # Example
 ```
-type: custom:entities-btn-group
+type: 'custom:entities-btn-group'
 title: Wohnzimmer
 entities:
   - light.fernsehbeleuchtung
