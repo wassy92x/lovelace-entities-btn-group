@@ -1,4 +1,4 @@
-# Lovelace Entities Button Group
+# Entities Button Group
 
 A custom card for Home Assistant to group multiple buttons ([Custom-ButtonCard](https://github.com/custom-cards/button-card))
 
