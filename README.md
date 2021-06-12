@@ -3,6 +3,7 @@
 A custom card for Home Assistant to group multiple buttons ([Custom-ButtonCard](https://github.com/custom-cards/button-card))
 
 [![GitHub Release][releases-shield]][releases]
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 [![License][license-shield]](LICENSE.md)
 
 ![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/entities-btn-group.png?raw=true)
@@ -26,6 +27,16 @@ If there is no template with name of the domain, the template called `default` w
 
 For the entities you can use every valid config-key of the custom button card.
 
+
+# Styling
+The card is stylable by some css variables.
+
+| Name                                 | Description                                 | Default                                                                       |
+| ------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------- |
+| --entities-btn-group-grid-template   | Grid column template                        | epeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)) |
+| --entities-btn-group-gap             | Gap size between columns and rows           | 10px |
+| --entities-btn-group-total-max-width | Maximum total width of grid                 | calc((var(--entities-btn-group-item-max-width, 125px) + var(--entities-btn-group-gap, 10px)) * 3 - var(--entities-btn-group-gap, 10px)) |
+| --entities-btn-group-item-max-width  | Maximum width of one button                 | 125px |
 
 # Example
 ```

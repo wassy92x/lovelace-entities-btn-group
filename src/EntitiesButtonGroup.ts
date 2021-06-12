@@ -164,20 +164,19 @@ export class EntitiesButtonGroup extends LitElement {
             color: var(--primary-text-color, black);
           }
           
-          @media (max-width: 1024px), (min-width: 1600px){
-            .content-wrapper {
-              grid-template-columns: repeat(3, 1fr) !important;
-            }
-          }
-          
           .content-wrapper {
             display: grid;
             overflow: hidden;
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: 10px;
-            grid-row-gap: 10px;
+            grid-template-columns: var(--entities-btn-group-grid-template, repeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)));
+            grid-column-gap: var(--entities-btn-group-gap, 10px);
+            grid-row-gap: var(--entities-btn-group-gap, 10px);
             width: 100%;
+            max-width: var(--entities-btn-group-total-max-width, calc((var(--entities-btn-group-item-max-width, 125px) + var(--entities-btn-group-gap, 10px)) * 3 - var(--entities-btn-group-gap, 10px)));
             height: min-content;
+          }
+          
+          .content-wrapper > * {
+            max-width: var(--entities-btn-group-item-max-width, 125px);
           }
         `;
     }
