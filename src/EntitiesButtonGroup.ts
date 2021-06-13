@@ -167,11 +167,18 @@ export class EntitiesButtonGroup extends LitElement {
           .content-wrapper {
             display: grid;
             overflow: hidden;
-            grid-template-columns: var(--entities-btn-group-grid-template, repeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)));
+            grid-template-columns: var(--entities-btn-group-grid-template,
+              repeat(auto-fill, minmax(
+                      min(
+                        var(--entities-btn-group-item-min-width, 85px),
+                        100% / var(--entities-btn-group-min-num-col, 2) - (var(--entities-btn-group-min-num-col, 2) - 1) * (var(--entities-btn-group-gap, 10px) / 2)
+                      ),
+                      1fr
+              ))
+            );
             grid-column-gap: var(--entities-btn-group-gap, 10px);
             grid-row-gap: var(--entities-btn-group-gap, 10px);
             width: 100%;
-            max-width: var(--entities-btn-group-total-max-width, calc((var(--entities-btn-group-item-max-width, 125px) + var(--entities-btn-group-gap, 10px)) * 3 - var(--entities-btn-group-gap, 10px)));
             height: min-content;
           }
           

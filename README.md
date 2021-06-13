@@ -35,8 +35,9 @@ The card is stylable by some css variables.
 | ------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------- |
 | --entities-btn-group-grid-template   | Grid column template                        | epeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)) |
 | --entities-btn-group-gap             | Gap size between columns and rows           | 10px |
-| --entities-btn-group-total-max-width | Maximum total width of grid                 | calc((var(--entities-btn-group-item-max-width, 125px) + var(--entities-btn-group-gap, 10px)) * 3 - var(--entities-btn-group-gap, 10px)) |
+| --entities-btn-group-item-min-width  | Minimum width of one button (please not that the minimum number of columns has a higher priority) | 85px |
 | --entities-btn-group-item-max-width  | Maximum width of one button                 | 125px |
+| --entities-btn-group-min-num-col     | Minimum number of columns                   | 2 |
 
 # Example
 ```
