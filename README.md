@@ -14,7 +14,7 @@ A custom card for Home Assistant to group multiple buttons ([Custom-ButtonCard](
 | ----------------- | ------------------- | ------------ | ----------------------------------------------- | ------------------- |
 | type              | string              | **Required** | `custom:entities-btn-group`                  |                     |
 | title             | string              | **Optional** | Title of group                                  |                     |
-| entities          | (object | string)[] | **Optional** | Entities to show inside button group            |                     |
+| entities          | (object &#124; string)[] | **Optional** | Entities to show inside button group            |                     |
 
 ## Entity
 One entity can be either an string (the entity_id) or an object.
@@ -33,7 +33,7 @@ The card is stylable by some css variables.
 
 | Name                                 | Description                                 | Default                                                                       |
 | ------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------- |
-| --entities-btn-group-grid-template   | Grid column template                        | epeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)) |
+| --entities-btn-group-grid-template   | Grid column template                        | repeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)) |
 | --entities-btn-group-gap             | Gap size between columns and rows           | 10px |
 | --entities-btn-group-item-min-width  | Minimum width of one button (please not that the minimum number of columns has a higher priority) | 85px |
 | --entities-btn-group-item-max-width  | Maximum width of one button                 | 125px |
