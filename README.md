@@ -33,20 +33,29 @@ The card is stylable by some css variables.
 
 | Name                                 | Description                                 | Default                                                                       |
 | ------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------- |
-| --entities-btn-group-grid-template   | Grid column template                        | repeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)) |
+| --entities-btn-group-grid-template   | Grid column template                        | repeat(auto-fill, minmax(min(var(--entities-btn-group-item-min-width), 100% / var(--entities-btn-group-min-num-col) - (var(--entities-btn-group-min-num-col) - 1) * (var(--entities-btn-group-gap) / 2)), 1fr)) |
 | --entities-btn-group-gap             | Gap size between columns and rows           | 10px |
 | --entities-btn-group-item-min-width  | Minimum width of one button (please not that the minimum number of columns has a higher priority) | 85px |
 | --entities-btn-group-item-max-width  | Maximum width of one button                 | 125px |
 | --entities-btn-group-min-num-col     | Minimum number of columns                   | 2 |
 
-# Example
+# Examples
+## Simple Entities
 ```
 type: 'custom:entities-btn-group'
 title: Wohnzimmer
 entities:
   - light.fernsehbeleuchtung
-  - entity: light.seitenbeleuchtung
-    name: "Mein Licht"
+  - entity: var.state_spulmaschine
+    name: Spülmaschine
+  - media_player.mymediaplayer
+```
+
+## Camera (MJPEG-Stream without Home Assistant Proxy)
+```
+type: 'custom:entities-btn-group'
+title: Wohnzimmer
+entities:
   - template:
       - camera
     variables:
@@ -54,7 +63,41 @@ entities:
     name: Kamera
 ```
 
-And at the root level of your lovelace configuration you have to set:
+## Camera Entity
+```
+type: 'custom:entities-btn-group'
+title: Wohnzimmer
+entities:
+  - camera.mycamera
+```
+
+Also you have to change the below mentioned camera-template to:
+```
+  camera:
+    template:
+      - default
+    show_entity_picture: true
+    styles:
+      entity_picture:
+        - width: 95%
+        - height: 100%
+        - border-radius: 5px
+```
+
+## Climate
+```
+type: 'custom:entities-btn-group'
+title: Wohnzimmer
+entities:
+  - entity: climate.kueche_thermostat
+    variables:
+      humidityEntity: sensor.kuche_feuchtigkeit
+      curTempEntity: sensor.kuche_temperatur
+```
+*Note: The above metioned variables could be ommitted. In this case the humidity will not be shown and the current temerature will be read from the climate-entity.*
+
+
+## And at the root level of your lovelace configuration you have to set:
 ```
 button_card_templates:
   default:
