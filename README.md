@@ -41,6 +41,7 @@ The card is stylable by some css variables.
 
 # Examples
 ## Simple Entities
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/simple-example.png?raw=true)
 ```
 type: 'custom:entities-btn-group'
 title: Wohnzimmer
@@ -52,6 +53,7 @@ entities:
 ```
 
 ## Camera (MJPEG-Stream without Home Assistant Proxy)
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/camera-example.png?raw=true)
 ```
 type: 'custom:entities-btn-group'
 title: Wohnzimmer
@@ -64,6 +66,7 @@ entities:
 ```
 
 ## Camera Entity
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/camera-example.png?raw=true)
 ```
 type: 'custom:entities-btn-group'
 title: Wohnzimmer
@@ -85,6 +88,7 @@ Also you have to change the below mentioned camera-template to:
 ```
 
 ## Climate
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/climate-example.png?raw=true)
 ```
 type: 'custom:entities-btn-group'
 title: Wohnzimmer
