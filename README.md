@@ -3,7 +3,7 @@
 A custom card for Home Assistant to group multiple buttons ([Custom-ButtonCard](https://github.com/custom-cards/button-card))
 
 [![GitHub Release][releases-shield]][releases]
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
 
 ![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/entities-btn-group.png?raw=true)
