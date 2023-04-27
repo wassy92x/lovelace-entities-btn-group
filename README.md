@@ -3,7 +3,7 @@
 A custom card for Home Assistant to group multiple buttons ([Custom-ButtonCard](https://github.com/custom-cards/button-card))
 
 [![GitHub Release][releases-shield]][releases]
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
 
 ![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/entities-btn-group.png?raw=true)
@@ -33,20 +33,31 @@ The card is stylable by some css variables.
 
 | Name                                 | Description                                 | Default                                                                       |
 | ------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------- |
-| --entities-btn-group-grid-template   | Grid column template                        | repeat(auto-fill, minmax(var(--entities-btn-group-item-min-width, 93px), 1fr)) |
+| --entities-btn-group-grid-template   | Grid column template                        | repeat(auto-fill, minmax(min(var(--entities-btn-group-item-min-width), 100% / var(--entities-btn-group-min-num-col) - (var(--entities-btn-group-min-num-col) - 1) * (var(--entities-btn-group-gap) / 2)), 1fr)) |
 | --entities-btn-group-gap             | Gap size between columns and rows           | 10px |
 | --entities-btn-group-item-min-width  | Minimum width of one button (please not that the minimum number of columns has a higher priority) | 85px |
 | --entities-btn-group-item-max-width  | Maximum width of one button                 | 125px |
 | --entities-btn-group-min-num-col     | Minimum number of columns                   | 2 |
 
-# Example
+# Examples
+## Simple Entities
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/simple-example.png?raw=true)
 ```
 type: 'custom:entities-btn-group'
 title: Wohnzimmer
 entities:
   - light.fernsehbeleuchtung
-  - entity: light.seitenbeleuchtung
-    name: "Mein Licht"
+  - entity: var.state_spulmaschine
+    name: Spülmaschine
+  - media_player.mymediaplayer
+```
+
+## Camera (MJPEG-Stream without Home Assistant Proxy)
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/camera-example.png?raw=true)
+```
+type: 'custom:entities-btn-group'
+title: Wohnzimmer
+entities:
   - template:
       - camera
     variables:
@@ -54,7 +65,43 @@ entities:
     name: Kamera
 ```
 
-And at the root level of your lovelace configuration you have to set:
+## Camera Entity
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/camera-example.png?raw=true)
+```
+type: 'custom:entities-btn-group'
+title: Wohnzimmer
+entities:
+  - camera.mycamera
+```
+
+Also you have to change the below mentioned camera-template to:
+```
+  camera:
+    template:
+      - default
+    show_entity_picture: true
+    styles:
+      entity_picture:
+        - width: 95%
+        - height: 100%
+        - border-radius: 5px
+```
+
+## Climate
+![Image of Entities Button Group](https://github.com/wassy92x/lovelace-entities-btn-group/blob/master/.images/climate-example.png?raw=true)
+```
+type: 'custom:entities-btn-group'
+title: Wohnzimmer
+entities:
+  - entity: climate.kueche_thermostat
+    variables:
+      humidityEntity: sensor.kuche_feuchtigkeit
+      curTempEntity: sensor.kuche_temperatur
+```
+*Note: The above metioned variables could be ommitted. In this case the humidity will not be shown and the current temerature will be read from the climate-entity.*
+
+
+## And at the root level of your lovelace configuration you have to set:
 ```
 button_card_templates:
   default:
