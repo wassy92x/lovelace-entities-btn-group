@@ -1,21 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-    LitElement,
-    html,
-    customElement,
-    property,
-    CSSResult,
-    TemplateResult,
-    css,
-    PropertyValues,
-    state,
-} from 'lit-element';
-import {
-    HomeAssistant,
-    LovelaceCardEditor,
-    LovelaceCard,
-    computeDomain, getLovelace
-} from 'custom-card-helpers';
+import {css, CSSResult, html, LitElement, PropertyValues, TemplateResult,} from 'lit';
+import {customElement, property, state} from 'lit/decorators';
+import {computeDomain, getLovelace, HomeAssistant, LovelaceCard, LovelaceCardEditor} from 'custom-card-helpers';
 import {createCard} from 'card-tools/src/lovelace-element';
 import {CARD_VERSION} from './const';
 import IEntitiesButtonGroupConfig from './IEntitiesButtonGroupConfig';
@@ -65,7 +51,7 @@ export class EntitiesButtonGroup extends LitElement {
         this._config = config;
         const lovelace = getLovelace();
         this._buttons = config.entities?.map((entityConfig: string | any) => {
-            const config: any = { type: 'custom:button-card' };
+            const config: any = {type: 'custom:button-card'};
             if (typeof entityConfig === 'string') {
                 config.entity = entityConfig;
                 const entityDomain = computeDomain(entityConfig);
@@ -159,29 +145,24 @@ export class EntitiesButtonGroup extends LitElement {
             height: min-content;
             margin: 0 8px;
           }
-          
+
           h1 {
             color: var(--primary-text-color, black);
           }
-          
+
           .content-wrapper {
             display: grid;
             overflow: hidden;
             grid-template-columns: var(--entities-btn-group-grid-template,
-              repeat(auto-fill, minmax(
-                      min(
-                        var(--entities-btn-group-item-min-width, 85px),
-                        100% / var(--entities-btn-group-min-num-col, 2) - (var(--entities-btn-group-min-num-col, 2) - 1) * (var(--entities-btn-group-gap, 10px) / 2)
-                      ),
-                      1fr
-              ))
-            );
+            repeat(auto-fill, minmax(min(var(--entities-btn-group-item-min-width, 85px),
+            100% / var(--entities-btn-group-min-num-col, 2) - (var(--entities-btn-group-min-num-col, 2) - 1) * (var(--entities-btn-group-gap, 10px) / 2)),
+            1fr)));
             grid-column-gap: var(--entities-btn-group-gap, 10px);
             grid-row-gap: var(--entities-btn-group-gap, 10px);
             width: 100%;
             height: min-content;
           }
-          
+
           .content-wrapper > * {
             max-width: var(--entities-btn-group-item-max-width, 125px);
           }

@@ -1,6 +1,6 @@
 {
   "name": "lovelace-entities-btn-group",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Home Assistant Entities Button Group",
   "keywords": [
     "home-assistant",
@@ -10,14 +10,14 @@
     "lovelace",
     "custom-cards"
   ],
-  "module": "dist/EntitiesButtonGroup.js",
+  "module": "dist/entities-btn-group.js",
   "repository": "git@github.com:wassy92x/lovelace-entities-btn-group.git",
   "author": "Fabian Wassenhoven <info@it-creators.de>",
   "license": "MIT",
   "dependencies": {
     "card-tools": "thomasloven/lovelace-card-tools",
     "custom-card-helpers": "^1.9.0",
-    "lit-element": "^3.3.1"
+    "lit": "^2.7.3"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
