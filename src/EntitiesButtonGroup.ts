@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {css, CSSResult, html, LitElement, PropertyValues, TemplateResult,} from 'lit';
 import {customElement, property, state} from 'lit/decorators';
-import {computeDomain, getLovelace, HomeAssistant, LovelaceCard, LovelaceCardEditor} from 'custom-card-helpers';
+import {computeDomain, HomeAssistant, LovelaceCard, LovelaceCardEditor} from 'custom-card-helpers';
 import {createCard} from 'card-tools/src/lovelace-element';
 import {CARD_VERSION} from './const';
 import IEntitiesButtonGroupConfig from './IEntitiesButtonGroupConfig';
@@ -23,6 +23,26 @@ console.info(
 type DeepPartial<T> = {
     [P in keyof T]?: DeepPartial<T[P]>;
 };
+
+export const getLovelace = (): any | null => {
+    let root: any = document.querySelector('home-assistant');
+    root = root && root.shadowRoot;
+    root = root && root.querySelector('home-assistant-main');
+    root = root && root.shadowRoot;
+    root = root && root.querySelector('ha-drawer');
+    root = root && root.querySelector('partial-panel-resolver');
+    root = root && root.shadowRoot || root;
+    root = root && root.querySelector('ha-panel-lovelace');
+    root = root && root.shadowRoot;
+    root = root && root.querySelector('hui-root');
+    if (root) {
+        const ll = root.lovelace;
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        ll.current_view = root.___curView;
+        return ll;
+    }
+    return null;
+}
 
 @customElement('entities-btn-group')
 export class EntitiesButtonGroup extends LitElement {
